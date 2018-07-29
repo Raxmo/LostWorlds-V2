@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LostWorldsV2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Lost Worlds V2" Height="900" Width="1600">
+    <Grid x:Name="MainWindow1" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <RichTextBox Name="MainText" Margin="10,10,220,10" VerticalScrollBarVisibility="Visible" SelectionBrush="Gray" Background="Black" Foreground="White">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Canvas Name="MapContainer" Margin="0,0,10,10" HorizontalAlignment="Right" Width="200" Height="200" VerticalAlignment="Bottom">
+            <Ellipse Stroke="White" Height="200" Width="200" StrokeThickness="3" />
+            <Canvas Name="map" Height="600" Width="600" Canvas.Left="-200" Canvas.Top="-200" RenderTransformOrigin="0.5,0.5" Cursor="Cross" MouseMove="MapMouseDrag" MouseLeave="MapMouseLeave" MouseDown="MapMouseDown" MouseUp="MapMouseUp">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+            <Canvas.Clip>
+                <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100"/>
+            </Canvas.Clip>
+        </Canvas>
+        <Canvas Name="tracker" HorizontalAlignment="Right" Height="200" Margin="0,0,10,220" VerticalAlignment="Bottom" Width="200">
+            <Ellipse Stroke="White" Height="200" Width="200" StrokeThickness="3"/>
+            <Canvas.Clip>
+                <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100"/>
+            </Canvas.Clip>
+        </Canvas>
+
     </Grid>
 </Window>
