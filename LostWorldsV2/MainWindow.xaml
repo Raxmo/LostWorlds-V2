@@ -10,7 +10,14 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <RichTextBox Name="MainText" Margin="10,10,220,10" VerticalScrollBarVisibility="Visible" SelectionBrush="Gray" Background="Black" Foreground="White">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Background="Black" Foreground="Black">
+                <MenuItem Header="_File" Foreground="White" Background="Black">
+                    <MenuItem Header="_Load" Background="Black" BorderBrush="Black" Click="LoadCLick"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <RichTextBox Name="MainText" Margin="10,19,220,10" VerticalScrollBarVisibility="Visible" SelectionBrush="Gray" Background="Black" Foreground="White">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
@@ -35,10 +42,30 @@
         </Canvas>
         <Canvas Name="tracker" HorizontalAlignment="Right" Height="200" Margin="0,0,10,220" VerticalAlignment="Bottom" Width="200">
             <Ellipse Stroke="White" Height="200" Width="200" StrokeThickness="3"/>
+            <Ellipse Name="sunpos" Stroke="White" Fill="White" Height="10" Width="10" StrokeThickness="3"/>
             <Canvas.Clip>
                 <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100"/>
             </Canvas.Clip>
         </Canvas>
-
+        <Grid Name="OptionsContainer" HorizontalAlignment="Right" Margin="0,50,10,0" VerticalAlignment="Top" Width="200" MinHeight="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Label Name="Thirsty" Content="Thirst" HorizontalAlignment="Right" Margin="0,20,150,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="White" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+        <Label Name="Energy" Content="Energy" Margin="0,20,80,0" VerticalAlignment="Top" Height="20" Foreground="White" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Right" Width="60"/>
+        <Label Name="Damage" Content="Damage" Width="60" Height="20" Margin="0,20,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>
