@@ -77,7 +77,7 @@ namespace LostWorldsV2
 
 		public static Event Start => new Event()
 		{
-			Text = "So, you wana get in and walk around eh? Just hit 'continue' to do so, my dude",
+			Text = "Welcome to Lost Worlds. Your map is the bottom circle, drag to move. You save each time you sleep, and you can load your save from the file menue in the top left corner. As soon as you create a character, and move into the game proper, the game will automaticaly save.",
 			OptionList = new List<Event.Option>()
 			{
 				new Event.Option()
@@ -174,6 +174,12 @@ namespace LostWorldsV2
 
 				Characters.Player.Init();
 
+				outtext +=
+				(Characters.Player.Race == Races.Human) ? "You look over your human body to asses your capabilities. Being human, you have no particularly varying traits. " :
+				(Characters.Player.Race == Races.Wolf) ? "You look over your lupine body, grey furr covering your body. You have foot-paws, a tail, and a muzzle. As a wolf, you are stronger, and can take more than most humans, but your reflexes and fine-moter skills are a little lower than most humans, but you asses your capabilities. " :
+				(Characters.Player.Race == Races.Cat) ? "You look over your feline body to asses yourself, your marbled black and white fur covering your body. As a cat, your flexibility and reflexes are better than most humans, but your focus and fine-moter skills are less than most humans. " :
+				"You look over your vulpine body to asses yourself, your orange fur covering your body. As a fox, your reflexes, fine motor skills and your flexability are all statisticly higher, but your strength, pain tolerance, and focus are all lower. ";
+
 				//Strength
 				outtext +=
 				(Characters.Player.StatBlock.Strength < 65.1055) ?		"Your lack of strength is legendary. " :
@@ -224,19 +230,19 @@ namespace LostWorldsV2
 
 				// Fine Moter
 				outtext +=
-				(Characters.Player.StatBlock.FineMoter < 65.1055) ?		"Your lack of fine moter skills is legendary. " :
-				(Characters.Player.StatBlock.FineMoter < 75.3265) ?		"Your fine moter skills are incredibly low. " :
-				(Characters.Player.StatBlock.FineMoter < 80.776) ?		"Your fine moter skills are far lower than average. " :
-				(Characters.Player.StatBlock.FineMoter < 87.376) ?		"Your fine moter skills are very low. " :
-				(Characters.Player.StatBlock.FineMoter < 92.134) ?		"Your fine moter skills are lower than average. " :
-				(Characters.Player.StatBlock.FineMoter < 96.2005) ?		"Your fine moter skills are slightly lower than average. " :
-				(Characters.Player.StatBlock.FineMoter < 103.7995) ?	"Your fine moter skills are about average. " :
-				(Characters.Player.StatBlock.FineMoter < 107.866) ?		"Your fine moter skills are slightly higher than average. " :
-				(Characters.Player.StatBlock.FineMoter < 112.624) ?		"Your fine moter skills are higher than average. " :
-				(Characters.Player.StatBlock.FineMoter < 119.224) ?		"Your fine moter skills are very high. " :
-				(Characters.Player.StatBlock.FineMoter < 124.6735) ?	"Your fine moter skills are far higher than average. " :
-				(Characters.Player.StatBlock.FineMoter < 134.8945) ?	"Your fine moter skills are incredibly high. " :
-																		"Your fine moter skills are a thing of legend. ";
+				(Characters.Player.StatBlock.FineMoter < 65.1055) ?		"Your lack of fine motor skills is legendary. " :
+				(Characters.Player.StatBlock.FineMoter < 75.3265) ?		"Your fine motor skills are incredibly low. " :
+				(Characters.Player.StatBlock.FineMoter < 80.776) ?		"Your fine motor skills are far lower than average. " :
+				(Characters.Player.StatBlock.FineMoter < 87.376) ?		"Your fine motor skills are very low. " :
+				(Characters.Player.StatBlock.FineMoter < 92.134) ?		"Your fine motor skills are lower than average. " :
+				(Characters.Player.StatBlock.FineMoter < 96.2005) ?		"Your fine motor skills are slightly lower than average. " :
+				(Characters.Player.StatBlock.FineMoter < 103.7995) ?	"Your fine motor skills are about average. " :
+				(Characters.Player.StatBlock.FineMoter < 107.866) ?		"Your fine motor skills are slightly higher than average. " :
+				(Characters.Player.StatBlock.FineMoter < 112.624) ?		"Your fine motor skills are higher than average. " :
+				(Characters.Player.StatBlock.FineMoter < 119.224) ?		"Your fine motor skills are very high. " :
+				(Characters.Player.StatBlock.FineMoter < 124.6735) ?	"Your fine motor skills are far higher than average. " :
+				(Characters.Player.StatBlock.FineMoter < 134.8945) ?	"Your fine motor skills are incredibly high. " :
+																		"Your fine motor skills are a thing of legend. ";
 
 				// Flexibility
 				outtext +=
