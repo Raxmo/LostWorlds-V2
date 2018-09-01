@@ -19,6 +19,7 @@ namespace LostWorldsV2
 		public class Character : Entity
 		{
 			public Races.Race Race;
+			public Inventory inventory = new Inventory();
 
 			public double drymass = 24800;
 

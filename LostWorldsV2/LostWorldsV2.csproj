@@ -62,9 +62,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bases.cs" />
     <Compile Include="Enemies.cs" />
     <Compile Include="Foods.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="Races.cs" />
+    <Compile Include="MResources.cs" />
     <Compile Include="SaveData.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

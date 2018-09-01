@@ -26,6 +26,13 @@ namespace LostWorldsV2
 
 	public partial class MainWindow : Window
 	{
+		// test area
+		public void Test()
+		{
+
+		}
+		// end test area
+		
 		public static MainWindow App;
 
 		public void ColorizeLabels()
@@ -239,6 +246,7 @@ namespace LostWorldsV2
 			MapInfo.Update();
 			Sun.Draw();
 			Events.Start.Load();
+			Test();
 		}
 
 		// class declarations and such
