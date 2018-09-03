@@ -30,6 +30,11 @@ namespace LostWorldsV2
 		public void Test()
 		{
 
+			Console.WriteLine("Adding test base...");
+
+			new Bases.Base() { chunkPos = new Vec() { (int)(MapInfo.Globe.Width / 2), (int)(MapInfo.Globe.Height / 4) }, pos = new Vec() { 100, 100 } };
+
+			Console.WriteLine("added test base...");
 		}
 		// end test area
 		
@@ -243,7 +248,13 @@ namespace LostWorldsV2
 		{
 			InitializeComponent();
 			App = this;
+
+			Console.WriteLine("Moving to draw map...");
+
 			MapInfo.Update();
+
+			Console.WriteLine("Map is drawn...");
+
 			Sun.Draw();
 			Events.Start.Load();
 			Test();
@@ -468,6 +479,8 @@ namespace LostWorldsV2
 
 				Cells[(int)location[0] + 1, (int)location[1] + 1] = cell;
 				MainWindow.App.map.Children.Add(cell);
+				
+				Bases.Draw(index, location);
 			}
 
 			public static void MoveUpdate()
@@ -640,6 +653,46 @@ namespace LostWorldsV2
 				Characters.Update();
 
 				Sun.Draw();
+
+				double shortest_dist = double.MaxValue;
+
+				for (int i = -1; i <= 1; i++)
+				{
+					for (int j = -1; j <= 1; j++)
+					{
+						try
+						{
+							foreach (Bases.Base checking in Bases.BaseList[(int)MapInfo.chunkpos[0] + i, (int)MapInfo.chunkpos[1] + j])
+							{
+								Vec temp = MapInfo.position + new Vec() { 100, 100 } - (checking.pos + new Vec() { 200 * i, 200 * j });
+								double dist = temp * temp;
+
+								if (dist <= shortest_dist)
+								{
+									shortest_dist = dist;
+									Bases.NearestBase = checking;
+								}
+							}
+						}
+						catch { }
+					}
+				}
+
+				Bases.Base temp_base = Bases.SelectedBase;
+
+				if (Bases.NearestBase.distance_to <= 50)
+				{
+					Bases.SelectedBase = Bases.NearestBase;
+				}
+				else
+				{
+					Bases.SelectedBase = null;
+				}
+
+				if(temp_base != Bases.SelectedBase)
+				{
+					MapInfo.Update();
+				}
 			}
 		}
 		
